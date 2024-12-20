@@ -1,17 +1,16 @@
-import React  from "react";
-import { createRoot } from "react-dom";
+import React from "react";
+import { createRoot } from "react-dom/client";
 
-
-
-
-
-
-// functional component
+const Pizza = (props) => {
+  return React.createElement("div", {}, [
+    React.createElement("h1", {}, props.name),
+    React.createElement("p", {}, props.description),
+  ]);
+};
 
 const App = () => {
-  // debugger;
   return React.createElement("div", {}, [
-    React.createElement("h1", {}, "Pixel Perfect Pizzas"),
+    React.createElement("h1", {}, "Padre Gino's"),
     React.createElement(Pizza, {
       name: "The Pepperoni Pizza",
       description: "Mozzarella Cheese, Pepperoni",
@@ -28,8 +27,5 @@ const App = () => {
 };
 
 const container = document.getElementById("root");
-
-//   telling where to render out app component
 const root = createRoot(container);
-//   rendering the given component in the given place
 root.render(React.createElement(App));
